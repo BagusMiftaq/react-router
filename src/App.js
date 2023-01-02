@@ -7,37 +7,32 @@ import AddType from "./pages/AddType";
 import TypeList from "./pages/TypeList";
 import CourseList from "./pages/CourseList";
 import NavBar from "./components/NavBar";
+import {Routes, Route} from "react-router-dom";
+import addCourse from "./pages/AddCourse";
+import addType from "./pages/AddType";
 
 function App() {
-  const [nav, setNav] = React.useState(ROUTES.COURSE_LIST);
 
-  let Component;
+    const menu = [
+        {path: "/", index:true, element: <h1>Dashboard Page</h1>},
+        {path: ROUTES.COURSE_LIST, element: <CourseList/>},
+        {path: ROUTES.TYPE_LIST, element:<TypeList/>},
+        {path: ROUTES.ADD_COURSE, element:<AddCourse/>},
+        {path: ROUTES.ADD_TYPE, element:<AddType/>},
+        {path: "*", element:<h1>Page not found</h1>}
+    ];
 
-  switch (nav){
-    case ROUTES.ADD_COURSE:
-      Component = AddCourse;
-      break;
-    case ROUTES.ADD_TYPE:
-      Component = AddType;
-      break;
-    case ROUTES.TYPE_LIST:
-      Component = TypeList;
-      break;
-    case ROUTES.COURSE_LIST:
-      Component = CourseList;
-      break;
-    default:
-      Component = CourseList;
-      break;
-  }
+    return (
+        <div className="App">
+            <NavBar/>
+            <Routes>
+                {menu.map((item)=>(
+                    <Route path={item.path} element={item.element} index={item.index}/>
+                ))}
+            </Routes>
 
-  return (
-    <div className="App">
-      <NavBar onNavigate={setNav}/>
-      <Component onNavigate={setNav}/>
-
-    </div>
-  );
+        </div>
+    );
 }
 
 export default App;
