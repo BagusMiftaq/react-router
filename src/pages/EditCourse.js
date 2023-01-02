@@ -16,10 +16,10 @@ const EditCourse = () => {
                 Edit Course Page
             </h3>
             <p>
-                Query Params : {search.get("title")}
+                Title : {search.get("title")}
             </p>
             <p>
-                Params : {location?.state?.title}
+                Desc :
             </p>
             <p>
                 Path Variable : {params?.courseId}
