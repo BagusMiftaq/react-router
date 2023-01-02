@@ -1,15 +1,23 @@
 import {ROUTES} from "../constants";
-import {useLocation, useNavigate, useParams} from "react-router-dom";
+import {useLocation, useNavigate, useParams, useSearchParams} from "react-router-dom";
+
+
+
 
 const EditCourse = () => {
     const onNavigate = useNavigate();
     const location = useLocation();
     const params = useParams();
+    const [search] = useSearchParams();
+
     return (
         <>
             <h3>
                 Edit Course Page
             </h3>
+            <p>
+                Query Params : {search.get("title")}
+            </p>
             <p>
                 Params : {location?.state?.title}
             </p>

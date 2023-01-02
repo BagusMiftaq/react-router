@@ -9,20 +9,23 @@ const menu = [
     {path: ROUTES.ADD_TYPE, text: "Add Type"}
 ];
 
-const NavBar = () => (
-    <nav>
-        {menu.map((item) => (
-            <Link
-                to={item.path}
-                style={{marginRight: 10}}
-                state={{
-                    title : "from Navbar"
-                }}
+const NavBar = () => {
+    return (
+
+        <nav>
+            {menu.map((item) => (
+                <Link
+                    to={item.path}
+                    style={{marginRight: 10}}
+                    state={{
+                        title : "from Navbar"
+                    }}
                 >
-                {item.text}
-            </Link>
-        ))}
-    </nav>
-)
+                    {item.text}
+                </Link>
+            ))}
+        </nav>
+    )
+}
 
 export default NavBar;
