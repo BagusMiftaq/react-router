@@ -43,7 +43,6 @@ function App() {
 
     return (
         <div className="App">
-
             <Routes>
                 <Route path={ROUTES.LOGIN} element={<h1>Login Page</h1>} index={true}/>
                 <Route path={ROUTES.DASHBOARD} element={<ProtectedRoutes isLoggedIn={isLoggedin}/>}>
