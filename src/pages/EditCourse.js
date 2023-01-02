@@ -1,20 +1,24 @@
 import {ROUTES} from "../constants";
-import {useLocation, useNavigate} from "react-router-dom";
+import {useLocation, useNavigate, useParams} from "react-router-dom";
 
-const AddCourse = () => {
+const EditCourse = () => {
     const onNavigate = useNavigate();
     const location = useLocation();
+    const params = useParams();
     return (
         <>
             <h3>
-                Add Course Page
+                Edit Course Page
             </h3>
             <p>
                 Params : {location?.state?.title}
             </p>
+            <p>
+                Path Variable : {params?.courseId}
+            </p>
             <button onClick={()=> onNavigate(ROUTES.COURSE_LIST, {
                 state : {
-                    title : "from Add Course"
+                    title : "from Edit Course"
                 }
             })}>
                 Go to Course List
@@ -24,4 +28,4 @@ const AddCourse = () => {
 }
 
 
-export default AddCourse;
+export default EditCourse;
